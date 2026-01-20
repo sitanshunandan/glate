@@ -26,20 +26,6 @@ The system is architected as a stateful biological simulation:
 
 You will see the current_mg value decay over time as the background engine simulates liver clearance.
 
-```mermaid
-graph LR
-    User[Client / API] -->|POST /ingest| Handler[API Handler]
-    Handler -->|Write| Store[(In-Memory Session Store)]
-    
-    subgraph "Concurrent Engine"
-        Store -->|Read Snapshot| Monitor[Background Sentinel]
-        Monitor -->|Fetch T_1/2| Repo[Substance Repository]
-        Monitor -->|Calculate Decay| Math[Metabolic Calculator]
-    end
-    
-    Math -->|Status Log| Console[Console: 📉 Caffeine 45mg (Sleep Safe)]
-```
-
 ## Optimizations
 
 The primary challenge was managing mutable state (user blood levels) in a highly concurrent environment without race conditions.
