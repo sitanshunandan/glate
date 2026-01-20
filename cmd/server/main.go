@@ -20,24 +20,22 @@ func main() {
 
 	calc := engine.NewMetabolicCalculator()
 	advisor := engine.NewAdvisor(repo, calc)
-
-	// NEW: Initialize the Store
 	sessionStore := store.NewSessionStore()
 
-	// Inject Store into Handler
 	handler := api.NewHandler(advisor, sessionStore, repo, calc)
 
-	// 2. Router
+	// 2. Start the Background Monitor (NEW)
+	// We set it to run every 10 seconds for the demo.
+	monitor := engine.NewMonitor(sessionStore, repo, calc)
+	monitor.Start(10 * time.Second)
+
+	// 3. Router
 	mux := http.NewServeMux()
-
-	// Old stateless endpoint
 	mux.HandleFunc("POST /analyze", handler.AnalyzeEndpoint)
-
-	// New stateful endpoints
 	mux.HandleFunc("POST /ingest", handler.IngestEndpoint)
 	mux.HandleFunc("GET /status", handler.StatusEndpoint)
 
-	// 3. Server
+	// 4. Server
 	srv := &http.Server{
 		Addr:         ":8080",
 		Handler:      mux,
