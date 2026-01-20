@@ -1,0 +1,70 @@
+[
+    {
+      "id": "iron-bisglycinate",
+      "name": "Iron Bisglycinate",
+      "category": "Mineral",
+      "half_life_hours": 6.0,
+      "bioavailability": 0.90,
+      "interactions": [
+        {
+          "target_id": "caffeine",
+          "type": "INHIBIT",
+          "window_hours": 2.0,
+          "note": "Caffeine blocks iron absorption receptors."
+        }
+      ]
+    },
+    {
+      "id": "vitamin-c",
+      "name": "Vitamin C (Ascorbic Acid)",
+      "category": "Vitamin",
+      "half_life_hours": 2.0,
+      "bioavailability": 1.0,
+      "interactions": [
+        {
+          "target_id": "iron-bisglycinate",
+          "type": "POTENTIATE",
+          "window_hours": 0.5,
+          "note": "Converts ferric iron to ferrous iron, improving absorption."
+        }
+      ]
+    },
+    {
+      "id": "caffeine",
+      "name": "Caffeine",
+      "category": "Stimulant",
+      "half_life_hours": 5.0,
+      "bioavailability": 0.99,
+      "interactions": [
+        {
+          "target_id": "iron-bisglycinate",
+          "type": "INHIBIT",
+          "window_hours": 1.5,
+          "note": "Polyphenols bind to iron."
+        }
+      ]
+    },
+    {
+      "id": "nac",
+      "name": "N-Acetyl Cysteine",
+      "category": "AminoAcid",
+      "half_life_hours": 5.6,
+      "bioavailability": 0.10,
+      "interactions": []
+    },
+    {
+      "id": "dxm-micro",
+      "name": "DXM (Microdose)",
+      "category": "Nootropic",
+      "half_life_hours": 4.0,
+      "bioavailability": 0.60,
+      "interactions": [
+        {
+          "target_id": "ssr-inhibitors",
+          "type": "DANGEROUS",
+          "window_hours": 24.0,
+          "note": "Risk of Serotonin Syndrome."
+        }
+      ]
+    }
+  ]
