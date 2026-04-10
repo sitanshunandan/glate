@@ -1,7 +1,7 @@
 # Glate: Concurrent Pharmacokinetic Engine
 **Glate** (Short for "Regulate" or "Calculated") is a distributed systems simulation designed to model the pharmacokinetics (half-life decay) of nootropics and supplements in real-time.
 
-While most pill-tracking apps are simple CRUD loggers, Glate is a stateful backend engine that simulates the actual plasma concentration of active compounds in the user's bloodstream. It calculates first-order kinetics decay curves dynamically and uses a graph-based dependency engine to predict "clearance windows" for conflicting substances (e.g., preventing Iron intake while Caffeine is still biologically active).
+Unlike most pill-tracking apps that function as basic CRUD loggers, Glate is a stateful backend engine simulating plasma concentrations of active compounds in the user's bloodstream. It dynamically calculates first-order kinetic decay curves. It also uses a graph-based dependency engine to predict clearance windows for conflicting substances, such as preventing iron intake while caffeine remains active.
 
 **Link to project:** [TBU]
 
